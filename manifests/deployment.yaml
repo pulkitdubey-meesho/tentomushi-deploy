@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tentomushi-frontend
+  labels:
+    app: tentomushi-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tentomushi-frontend
+  template:
+    metadata:
+      labels:
+          app: tentomushi-frontend
+    spec:
+      containers:
+      - name: tentomushi-frontend
+        image: localhost:5000/tentomushi-frontend:latest
+        ports:
+        - containerPort: 80
